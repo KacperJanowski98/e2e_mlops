@@ -12,7 +12,7 @@ from zenml import Model, pipeline
 def ml_pipeline():
     """Define an end-to-end machine learning pipeline."""
     # Data Ingestion Step
-    raw_data = data_ingestion_step(file_path=here("data/archive.zip"))
+    raw_data = data_ingestion_step(file_path=str(here("data/archive.zip")))
 
     # Handling Missing Values Step
     filled_dara = handle_missing_values_step(raw_data)

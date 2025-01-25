@@ -1,5 +1,6 @@
 from steps.data_ingestion_step import data_ingestion_step
 from steps.handle_missing_values_step import handle_missing_values_step
+from steps.feature_engineering_step import feature_engineering_step
 from pyprojroot import here
 from zenml import Model, pipeline
 
@@ -16,3 +17,8 @@ def ml_pipeline():
 
     # Handling Missing Values Step
     filled_dara = handle_missing_values_step(raw_data)
+
+    # Feature Engineering Step
+    engineered_data = feature_engineering_step(
+        filled_dara, strategy="log", features=["Gr Liv Area", "SalePrice"]
+    )
